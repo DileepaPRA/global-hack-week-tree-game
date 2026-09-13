@@ -3,17 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tree Game</title>
+  <title>Global Hack Week Tree Game</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="app">
-    <h1>Tree Game</h1>
-    <p>Plant trees, grow your forest, and keep the ecosystem healthy.</p>
+    <h1>Global Hack Week Tree Game</h1>
+    <p>Plant saplings, keep them watered, and survive the drought to grow a thriving forest.</p>
     <button id="startBtn">Start Game</button>
-    <section id="game" class="hidden">
-      <div class="status">Trees planted: <span id="treeCount">0</span></div>
-      <button id="plantBtn">Plant a Tree</button>
+    <button id="restartBtn" class="hidden secondary">Restart</button>
+    <section id="game" class="hidden" aria-live="polite">
+      <div class="stats">
+        <div class="stat">Time: <span id="timeLeft">45</span>s</div>
+        <div class="stat">Trees: <span id="treeCount">0</span></div>
+        <div class="stat">Score: <span id="score">0</span></div>
+      </div>
+      <div class="meter-wrap">
+        <label for="waterMeter">Water</label>
+        <progress id="waterMeter" max="100" value="60"></progress>
+      </div>
+      <div class="meter-wrap">
+        <label for="growthMeter">Growth</label>
+        <progress id="growthMeter" max="100" value="0"></progress>
+      </div>
+      <p id="eventLog" class="event-log">Press start to begin your reforestation run.</p>
+      <div class="controls">
+        <button id="plantBtn">Plant Tree (−10 water)</button>
+        <button id="waterBtn">Water Forest (+20 water)</button>
+      </div>
     </section>
   </main>
   <script src="game.js"></script>
